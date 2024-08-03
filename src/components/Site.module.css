@@ -45,3 +45,13 @@
   color: #7fb8f1;
   text-decoration: underline;
 }
+
+.wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.wrapper img {
+  width: 220px;
+}
