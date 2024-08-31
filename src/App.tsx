@@ -7,11 +7,13 @@ import { Abibas } from "./components/pages/Abibas";
 import { Error404 } from "./components/pages/Error404";
 import { NavLink } from "react-router-dom";
 import { DescriptionOfSnickers } from "./components/DescriptionOfSnickers";
+import { Prices } from "./components/pages/Prices";
 
 const PATH = {
   PAGE1: "/adidas",
   PAGE2: "/puma",
   PAGE3: "/abibas",
+  PRICE: "/price",
   ERROR: "/error404",
 } as const;
 
@@ -41,6 +43,12 @@ function App() {
           >
             Abibas
           </NavLink>
+          <NavLink
+            to={PATH.PRICE}
+            className={({ isActive }) => (isActive ? styles.activeNavLink : styles.navLink)}
+          >
+            Price
+          </NavLink>
         </div>
         <div className={styles.content}>
           <Routes>
@@ -48,6 +56,7 @@ function App() {
             <Route path={PATH.PAGE1} element={<Adidas />} />
             <Route path={PATH.PAGE2} element={<Puma />} />
             <Route path={PATH.PAGE3} element={<Abibas />} />
+            <Route path={PATH.PRICE} element={<Prices />} />
             <Route path={PATH.ERROR} element={<Error404 />} />
             <Route path={"/:model/:id"} element={<DescriptionOfSnickers />} />
             <Route path="/*" element={<Navigate to={PATH.ERROR} />} />
