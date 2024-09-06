@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./components/Site.module.css";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { Adidas } from "./components/pages/Adidas";
 import { Puma } from "./components/pages/Puma";
 import { Abibas } from "./components/pages/Abibas";
@@ -51,16 +51,7 @@ function App() {
           </NavLink>
         </div>
         <div className={styles.content}>
-          <Routes>
-            <Route path="/" element={<Navigate to={PATH.PAGE1} />} />
-            <Route path={PATH.PAGE1} element={<Adidas />} />
-            <Route path={PATH.PAGE2} element={<Puma />} />
-            <Route path={PATH.PAGE3} element={<Abibas />} />
-            <Route path={PATH.PRICE} element={<Prices />} />
-            <Route path={PATH.ERROR} element={<Error404 />} />
-            <Route path={"/:model/:id"} element={<DescriptionOfSnickers />} />
-            <Route path="/*" element={<Navigate to={PATH.ERROR} />} />
-          </Routes>
+          <Outlet />
         </div>
       </div>
       <div className={styles.footer}>abibas 2023</div>
