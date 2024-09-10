@@ -8,14 +8,7 @@ import { Error404 } from "./components/pages/Error404";
 import { NavLink } from "react-router-dom";
 import { DescriptionOfSnickers } from "./components/DescriptionOfSnickers";
 import { Prices } from "./components/pages/Prices";
-
-const PATH = {
-  PAGE1: "/adidas",
-  PAGE2: "/puma",
-  PAGE3: "/abibas",
-  PRICE: "/price",
-  ERROR: "/error404",
-} as const;
+import { PATH } from "./routes/router";
 
 function App() {
   return (
@@ -26,19 +19,19 @@ function App() {
       <div className={styles.body}>
         <div className={styles.nav}>
           <NavLink
-            to={PATH.PAGE1}
+            to={PATH.ADIDAS}
             className={({ isActive }) => (isActive ? styles.activeNavLink : styles.navLink)}
           >
             Adidas
           </NavLink>
           <NavLink
-            to={PATH.PAGE2}
+            to={PATH.PUMA}
             className={({ isActive }) => (isActive ? styles.activeNavLink : styles.navLink)}
           >
             Puma
           </NavLink>
           <NavLink
-            to={PATH.PAGE3}
+            to={PATH.ABIBAS}
             className={({ isActive }) => (isActive ? styles.activeNavLink : styles.navLink)}
           >
             Abibas
@@ -48,6 +41,12 @@ function App() {
             className={({ isActive }) => (isActive ? styles.activeNavLink : styles.navLink)}
           >
             Price
+          </NavLink>
+          <NavLink
+            to={PATH.PROTECTED}
+            className={({ isActive }) => (isActive ? styles.activeNavLink : styles.navLink)}
+          >
+            Protected
           </NavLink>
         </div>
         <div className={styles.content}>
