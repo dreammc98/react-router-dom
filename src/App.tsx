@@ -1,16 +1,14 @@
-import React, { useState } from "react";
 import styles from "./components/Site.module.css";
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
-import { Adidas } from "./components/pages/Adidas";
-import { Puma } from "./components/pages/Puma";
-import { Abibas } from "./components/pages/Abibas";
-import { Error404 } from "./components/pages/Error404";
+import { Outlet, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { DescriptionOfSnickers } from "./components/DescriptionOfSnickers";
-import { Prices } from "./components/pages/Prices";
 import { PATH } from "./routes/router";
 
 function App() {
+  const navigate = useNavigate();
+  const navigateHandler = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
       <div className={styles.header}>
@@ -49,7 +47,20 @@ function App() {
             Protected
           </NavLink>
         </div>
+
         <div className={styles.content}>
+          <div className={styles.HorizontalNavigation}>
+            <NavLink to={PATH.ADIDAS} className={styles.LinkLikeButton}>
+              Home (Adidas)
+            </NavLink>
+            <button
+              onClick={navigateHandler}
+              className={styles.LinkLikeButton}
+              style={{ marginLeft: "10px", backgroundColor: "red" }}
+            >
+              Back
+            </button>
+          </div>
           <Outlet />
         </div>
       </div>

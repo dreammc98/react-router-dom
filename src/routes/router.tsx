@@ -22,6 +22,7 @@ export const PATH = {
 } as const;
 
 const publicRoutes: RouteObject[] = [
+  { path: "/", element: <Navigate to={PATH.ADIDAS} /> },
   { path: PATH.ADIDAS, element: <Adidas /> },
   { path: PATH.PUMA, element: <Puma /> },
   { path: PATH.ABIBAS, element: <Abibas /> },
